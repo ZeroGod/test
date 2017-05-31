@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Test";
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Ajax Uploader</title>
+    <script src="/jquery-1.7.1.js" type="text/javascript"></script>
+</head>
+<body>
+    <form action="/home/index" method="post" id="mytest">
+        <p>
+            <input type="file" id="upfile" name="upfile" />
+        </p>
+        <p><input type="hidden" value="100000" name="storeId" /></p>
+        <p>
+            <input type="button" id="upJQuery" value="用jQuery上传">
+        </p>
+    </form>
+    <script>
+        $('#upJQuery').on('click',
+            function () {
+                //使用这是为了全部表单数据提交
+                // var fd = new FormData($("#mytest")[0]);
+                var fd = new FormData();
+                //  fd.append("upload", 1);
+                //只提交指定的数据
+                fd.append("upfile", $("#upfile").get(0).files[0]);
+                fd.append("storeId", 2);
+                alert(fd);
+                $.ajax({
+                    url: "/Home/Upload",
+                    type: "POST",
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    data: fd,
+                    success: function (result) {
+                        alert(result.Id);
+                    }
+                });
+            });
+
+
+        /* jQuery 版 */
+        /*  $('#upJQuery').on('click',
+              function() {
+                  var fd = new FormData();
+                  fd.append("upload", 1);
+                  fd.append("upfile", $("#upfile").get(0).files[0]);
+                  fd.append("storId", 2);
+                  alert(fd);
+                  $.ajax({
+                      url: "/Home/Upload",
+                      type: "POST",
+                      dataType: 'json',
+                      processData: false,
+                      contentType: false,
+                      data: fd,
+                      success: function(result) {
+                          alert(result.Id);
+                      }
+                  });
+              });*/
+    </script>
+</body>
+</html>
