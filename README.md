@@ -1,10 +1,10 @@
 <link rel="stylesheet" type="text/css" href="css/help-style.css"/>
 <div id="container">
   <div class="jf_help borderline">
-    <h5 class="ft15">asp.net mvc²âÊÔÀı×Ó</h5>
+    <h5 class="ft15">asp.net mvcæµ‹è¯•ä¾‹å­</h5>
     <div class="ft14 jf_help_info">
       <ul>
-        <li>Ö»ÊÇ²âÊÔ¡£²»±ØÀí»á</li>
+        <li>åªæ˜¯ç”¨äºæµ‹è¯•ã€‚ä¸å¿…ç†ä¼š</li>
       </ul>
     </div>
   </div>
